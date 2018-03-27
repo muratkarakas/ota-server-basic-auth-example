@@ -72,13 +72,19 @@ module.exports = {
     	               "options": {
     	                  "realm": "My Realm",
     	                  "validateFunc": (request, username, password, callback) => {
-    	                     err = null;
-    	                     isValid = true;
-    	                     provider = "basic-auth";
-    	                     profile = { email, displayName, username };
-    	                     credentials = { provider, profile };
-    	                     callback(err, isValid, credentials);
-    	                  }
+    	                	  
+     	                	 try {
+         	                     err = null;
+         	                     isValid = true;
+         	                     provider = "basic-auth";
+         	                     profile = { "email":"murat@eteration.com", "displayName":"Murat Karakas", "username":"mkarakas" };
+         	                     credentials = { provider, profile };
+         	                     callback(err, isValid, credentials);
+ 							} catch (e) {
+ 								console.dir(e);
+ 							} 
+     	                	 
+     	                  }
     	               }
     	              },
     	              "session" : {
