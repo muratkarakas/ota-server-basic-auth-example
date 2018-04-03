@@ -10,7 +10,7 @@ module.exports = {
 		"default" : {
 			"routes" : {
 				"payload" : {
-					"maxBytes" : 4194304
+					"maxBytes" : 44194304
 				}
 			}
 		}
@@ -19,6 +19,11 @@ module.exports = {
 	"plugins" : {
 
 		"electrode-ota-server-dao-cassandra" : {
+			"options" : {
+				"contactPoints" : [ "localhost" ]
+			}
+		},
+		"electrode-ota-server-dao-plugin" : {
 			"options" : {
 				"contactPoints" : [ "localhost" ]
 			}
@@ -40,16 +45,6 @@ module.exports = {
 	    	                    "height": 50,
 	    	                    "width": 50
 	    	                }
-	    	            },
-	    	            {
-	    	                "name": "github",
-	    	                "auth": "github-oauth",
-	    	                "label": "GitHub Authentication",
-	    	                "icon": {
-	    	                    "src": "https://assets-cdn.github.com/images/modules/logos_page/Octocat.png",
-	    	                    "height": 50,
-	    	                    "width": 50
-	    	                }
 	    	            }
 	    	        ]
 	    	    }
@@ -58,14 +53,9 @@ module.exports = {
 			"options" : {
 				"strategy" : {
 
-					"github-oauth" : {
-						"options" : {
-							"isSecure" : false,
-							"location" : "http://eterationota.com:9001",
-							"clientId" : "xxx",
-							"clientSecret" : "xxx"
-						}
-					},
+					"github-oauth": {
+                        "enable": false
+                    },
 				  "basic": {
     	               "module": "electrode-ota-server-auth-basic",
     	               "scheme": "basic",
@@ -73,18 +63,21 @@ module.exports = {
     	                  "realm": "My Realm",
     	                  "validateFunc": (request, username, password, callback) => {
     	                	  
-     	                	 try {
-         	                     err = null;
-         	                     isValid = true;
-         	                     provider = "basic-auth";
-         	                     profile = { "email":"murat@eteration.com", "displayName":"Murat Karakas", "username":"mkarakas" };
-         	                     credentials = { provider, profile };
-         	                     callback(err, isValid, credentials);
- 							} catch (e) {
- 								console.dir(e);
- 							} 
-     	                	 
-     	                  }
+    	                	 try {
+    	                		 console.log("custom validate function"); 
+        	                     err = null;
+        	                     isValid = true;
+        	                     provider = "basic-auth";
+        	                     profile = { "email":"murat@eteration.com", "displayName":"Murat Karakas", "username":"mkarakas" };
+        	                     credentials = { provider, profile };
+        	                     console.log("custom validate function before login"); 
+        	                     callback(err, isValid, credentials);
+							} catch (e) {
+								console.dir(e);
+								callback(e, false, null);
+							} 
+    	                	 
+    	                  }
     	               }
     	              },
     	              "session" : {

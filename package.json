@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node $NODE_DEBUG_OPTION ./node_modules/electrode-ota-server/index"
+    "start": "NODE_ENV=production node $NODE_DEBUG_OPTION ./node_modules/electrode-ota-server/index",
+    "dev": "NODE_ENV=development node $NODE_DEBUG_OPTION ./node_modules/electrode-ota-server/index"
   },
   "author": "Murat Karakas <karakasmurat@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "electrode-ota-server": "^v4.4.0-0",
-    "electrode-ota-server-auth-basic": "^v4.4.0-0",
-    "electrode-ota-server-auth-validate": "^v4.4.0-0",
-    "electrode-ota-server-diregister": "^v4.3.0-0",
-    "electrode-ota-server-routes-auth": "^v4.4.0-0",
+    "electrode-ota-server": "^v4.4.4",
+    "electrode-ota-server-auth-basic": "^v4.4.4",
+    "electrode-ota-server-auth-validate": "^v4.4.4",
+    "electrode-ota-server-diregister": "^v4.4.3",
+    "electrode-ota-server-routes-auth": "^v4.4.4",
     "express": "^4.16.3"
   }
 }
