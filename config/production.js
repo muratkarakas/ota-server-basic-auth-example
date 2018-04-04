@@ -20,12 +20,12 @@ module.exports = {
 
 		"electrode-ota-server-dao-cassandra" : {
 			"options" : {
-				"contactPoints" : [ "localhost" ]
+				"contactPoints" : [ "cassandra" ]
 			}
 		},
 		"electrode-ota-server-dao-plugin" : {
 			"options" : {
-				"contactPoints" : [ "localhost" ]
+				"contactPoints" : [ "cassandra" ]
 			}
 		},
 		"electrode-ota-server-fileservice-upload" : {

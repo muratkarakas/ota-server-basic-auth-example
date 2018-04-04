@@ -1,3 +1,10 @@
+electrode_ota:
+  image: "com.eteraiton.ota:latest"
+  links:
+      - cassandra:cassandra
+  ports:
+     - "9001:9001"
+
 cassandra:
   image: "cassandra:latest"
   environment:
