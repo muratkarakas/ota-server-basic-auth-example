@@ -10,14 +10,22 @@ module.exports = {
 		"default" : {
 			"routes" : {
 				"payload" : {
-					"maxBytes" : 44194304
+					"maxBytes" : 44194304,
+					timeout: 119999
 				}
 			}
 		}
 
 	},
 	"plugins" : {
-
+		"electrode-ota-server-routes-apps": {
+	            options: {
+	                payload: {
+	                    maxBytes: 94371840,
+	                    timeout: 119999,
+	                }
+	            }
+	    },
 		"electrode-ota-server-dao-cassandra" : {
 			"options" : {
 				"contactPoints" : [ "cassandra" ]
